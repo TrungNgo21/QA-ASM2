@@ -38,7 +38,7 @@ public class BasicDataTest {
 
     @Test
     public void testGetName() {
-        assertNotEquals("John Doe", basicData.getName());
+        assertEquals("John Doe", basicData.getName());
     }
 
     @Test
@@ -55,7 +55,7 @@ public class BasicDataTest {
     @Test
     public void testSetName() {
         basicData.setName("Jane Doe");
-        assertNotEquals("Jane Doe", basicData.getName());
+        assertEquals("Jane Doe", basicData.getName());
     }
 
     @Test

@@ -1,11 +1,12 @@
 package org.example;
 
 import org.junit.After;
+import org.junit.AfterClass;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import javax.imageio.IIOException;
 import java.io.ByteArrayOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -23,7 +24,6 @@ public class RemoveStudentTest {
 
     @Before
     public void setUp() throws IOException {
-        event = new Event();
         System.setOut(new PrintStream(outContent));
         String content = "Id:7654324, Name:Student1, Password:p7654324#\n" +
                 "Id:7654325, Name:Student2, Password:p7654325#\n" +
@@ -37,6 +37,7 @@ public class RemoveStudentTest {
         try (FileWriter writer = new FileWriter("student.txt")) {
             writer.write(content);
         }
+        event = new Event();
     }
 
     @Test
@@ -100,7 +101,23 @@ public class RemoveStudentTest {
     }
 
     @After
-    public void restoreStreams() {
+    public void restoreStreams() throws IOException {
         System.setOut(originalOut);
+    }
+    
+    @AfterClass
+    public static void restoreFiles() throws IOException{
+    	 String content = "Id:7654324, Name:Student1, Password:p7654324#\n" +
+                 "Id:7654325, Name:Student2, Password:p7654325#\n" +
+                 "Id:7654326, Name:Student3, Password:p7654326#\n" +
+                 "Id:7654327, Name:Student4, Password:p7654327#\n" +
+                 "Id:7654328, Name:Student5, Password:p7654328#\n" +
+                 "Id:7654329, Name:Student6, Password:p7654329#\n" +
+                 "Id:7654330, Name:Student7, Password:p7654330#\n" +
+                 "Id:7654331, Name:Student8, Password:p7654331#\n" +
+                 "Id:7654332, Name:Student9, Password:p7654332#";
+         try (FileWriter writer = new FileWriter("student.txt")) {
+             writer.write(content);
+         }
     }
 }

@@ -1,7 +1,11 @@
 package org.example;
 
 import org.junit.After;
+import org.junit.AfterClass;
+
 import org.junit.Before;
+import org.junit.BeforeClass;
+
 import org.junit.Test;
 
 import java.io.*;
@@ -21,6 +25,7 @@ public class MainTest {
 
 
     String mainMenuContent;
+    
 
     @Before
     public void setUp() throws IOException {
@@ -58,7 +63,7 @@ public class MainTest {
         provideInput("3\n\n");
         Main.main(new String[]{});
         String output = outContent.toString().replace("\r", "");
-        assertFalse(output.contains("Thanks for using, Bye!"));
+        assertTrue(output.contains("Thanks for using, Bye!"));
     }
 
     @Test
@@ -125,7 +130,7 @@ public class MainTest {
         assertTrue(output.contains("Enter Admin's Password:"));
         assertTrue(output.contains("3 - Delete a Student"));
         assertTrue(output.contains("Enter id of Student you want to remove: "));
-        assertTrue(output.contains("Search result : false"));
+        assertTrue(output.contains("Search result : true"));
     }
     @Test
     public void testAdminInsertStudent(){
@@ -173,7 +178,7 @@ public class MainTest {
         assertTrue(output.contains("Enter Admin's Name:"));
         assertTrue(output.contains("Enter Admin's Password:"));
         assertTrue(output.contains("6 - Logout"));
-        assertFalse(output.contains("Do you want to proceed as an Admin or a Student?"));
+        assertTrue(output.contains("Do you want to proceed as an Admin or a Student?"));
     }
 
     @Test
@@ -227,7 +232,7 @@ public class MainTest {
         String output = outContent.toString().replace("\r", "");
         assertTrue(output.contains("Enter Student's ID: "));
         assertTrue(output.contains("Enter Student's Password: "));
-        assertFalse(output.contains("List of Events: "));
+        assertTrue(output.contains("List of Events: "));
     }
 
     @Test
@@ -264,6 +269,22 @@ public class MainTest {
     public void restoreStreams(){
         System.setIn(originalSystemIn);
         System.setOut(originalOut);
+    }
+    
+    @AfterClass
+    public static void setUpClass() throws IOException {
+    	String content = "Id:7654324, Name:Student1, Password:p7654324#\n" +
+                "Id:7654325, Name:Student2, Password:p7654325#\n" +
+                "Id:7654326, Name:Student3, Password:p7654326#\n" +
+                "Id:7654327, Name:Student4, Password:p7654327#\n" +
+                "Id:7654328, Name:Student5, Password:p7654328#\n" +
+                "Id:7654329, Name:Student6, Password:p7654329#\n" +
+                "Id:7654330, Name:Student7, Password:p7654330#\n" +
+                "Id:7654331, Name:Student8, Password:p7654331#\n" +
+                "Id:7654332, Name:Student9, Password:p7654332#";
+        try (FileWriter writer = new FileWriter("student.txt")) {
+            writer.write(content);
+        }
     }
 
 }
