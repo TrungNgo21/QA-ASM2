@@ -29,13 +29,6 @@ public class MainTest {
 
     @Before
     public void setUp() throws IOException {
-        mainMenuContent = "\n\n********************************* WELCOME TO THE EVENT MANAGEMENT SYSTEM *********************************** " +
-                "\n\n\nDo you want to proceed as an Admin or a Student? " +
-                "\nChoose wisely: " +
-                "\n1 - Admin" +
-                "\n2 - Student" +
-                "\n3 - Exit" +
-                "\nEnter your choice: ";
         System.setOut(new PrintStream(outContent));
         originalSystemIn = System.in;
         String content = "Id:7654324, Name:Student1, Password:p7654324#\n" +
@@ -50,7 +43,6 @@ public class MainTest {
         try (FileWriter writer = new FileWriter("student.txt")) {
             writer.write(content);
         }
-
     }
     public void provideInput(String data) {
         InputStream inputStream = new ByteArrayInputStream(data.getBytes());

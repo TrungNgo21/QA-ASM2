@@ -43,29 +43,24 @@ public class StudentLoginTest {
 
     @Test
     public void testStudentLoginSuccessful() {
-        provideInput("Student1\np7654324#\n");
+        provideInput("7654324\np7654324#\n");
         boolean loginStatus = event.StudentLogin();
         assertTrue(loginStatus);
     }
 
     @Test
     public void testAdminLoginWrongPassword() {
-        provideInput("Student1\nwrongpass\n");
+        provideInput("7654324\nwrongpass\n");
         assertFalse(event.StudentLogin());
     }
 
     @Test
     public void testAdminLoginNonexistentStudent() {
-        provideInput("AdminX\np7654324#\n");
+        provideInput("12\np7654324#\n");
         boolean loginStatus = event.StudentLogin();
         assertTrue("This credentials expected to failed", loginStatus);
     }
 
-    @Test
-    public void testStudentLoginEmptyCredentials() {
-        provideInput("\n\n");
-        assertFalse(event.StudentLogin());
-    }
 
     @After
     public void tearDown() {

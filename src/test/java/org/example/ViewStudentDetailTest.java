@@ -57,20 +57,16 @@ public class ViewStudentDetailTest {
                 "ID: 7654325\n" +
                 "Name: Student2\n" +
                 "Password: p7654325#\n" +
-                "\n" +
-                "ID: 7654326\n" +
+                "\n" + "ID: 7654326\n" +
                 "Name: Student3\n" +
                 "Password: p7654326#\n" +
-                "\n" +
-                "ID: 7654327\n" +
+                "\n" + "ID: 7654327\n" +
                 "Name: Student4\n" +
                 "Password: p7654327#\n" +
-                "\n" +
-                "ID: 7654328\n" +
+                "\n" + "ID: 7654328\n" +
                 "Name: Student5\n" +
                 "Password: p7654328#\n" +
-                "\n" +
-                "ID: 7654329\n" +
+                "\n" + "ID: 7654329\n" +
                 "Name: Student6\n" +
                 "Password: p7654329#\n" +
                 "\n" +
@@ -86,7 +82,6 @@ public class ViewStudentDetailTest {
                 "Name: Student9\n" +
                 "Password: p7654332#";
         String[] listExpectedOutput = expectedOutput.split("\n");
-
         assertArrayEquals(listExpectedOutput, listOutput);
     }
 

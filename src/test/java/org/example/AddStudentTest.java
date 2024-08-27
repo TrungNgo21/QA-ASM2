@@ -50,28 +50,24 @@ public class AddStudentTest {
         assertEquals("Student Added Successfully", result);
         assertEquals(10 ,event.countStudent());
     }
-
     @Test
     public void testAddExistingStudent() {
         provideInput("7654332\nStudent9\np7654332#");
         String result = event.AddStudent();
         assertEquals("Student Exists", result);
     }
-
     @Test
     public void testAddStudentInvalidPasswordLength() {
         provideInput("3\nBob Smith\ninvaldpw\n");
         String result = event.AddStudent();
         assertSame("Password length should be 9", result);
     }
-
     @Test
     public void testAddStudentPasswordWithoutFirstP() {
         provideInput("4\nAlice Johnson\nassword1#\n");
         String result = event.AddStudent();
         assertEquals("First letter of the Password should be p", result);
     }
-
     @Test
     public void testAddStudentPasswordWithoutEndHash() {
         provideInput("5\nCharlie Brown\npassword1\n");

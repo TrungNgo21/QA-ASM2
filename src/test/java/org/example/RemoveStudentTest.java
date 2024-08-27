@@ -67,12 +67,10 @@ public class RemoveStudentTest {
         String expectedOutput  = "\nDetails of All Student:.\nID: 7654325\n" +
                 "Name: Student2\n" +
                 "Password: p7654325#\n" +
-                "\n" +
-                "ID: 7654326\n" +
+                "\n" + "ID: 7654326\n" +
                 "Name: Student3\n" +
                 "Password: p7654326#\n" +
-                "\n" +
-                "ID: 7654327\n" +
+                "\n" + "ID: 7654327\n" +
                 "Name: Student4\n" +
                 "Password: p7654327#\n" +
                 "\n" +
@@ -87,12 +85,10 @@ public class RemoveStudentTest {
                 "ID: 7654330\n" +
                 "Name: Student7\n" +
                 "Password: p7654330#\n" +
-                "\n" +
-                "ID: 7654331\n" +
+                "\n" + "ID: 7654331\n" +
                 "Name: Student8\n" +
                 "Password: p7654331#\n" +
-                "\n" +
-                "ID: 7654332\n" +
+                "\n" + "ID: 7654332\n" +
                 "Name: Student9\n" +
                 "Password: p7654332#";
         String[] listExpectedOutput = expectedOutput.split("\n");
